@@ -1,27 +1,24 @@
-# Web
+# Part 1: Angular (Front-end)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8.
+## 1.1 Create a simple Angular application
 
-## Development server
+**Objective**: Assess the candidate's familiarity with the Angular framework and CLI.
+**Task**: Create an Angular application with a responsive layout using Angular Material or Bootstrap.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 1.2 Components, Services, and Routing
 
-## Code scaffolding
+**Objective**: Evaluate the candidate's understanding of Angular components, services, and routing.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Task**: Create an application that displays a list of products, allows adding new products, and provides a detail view
+for
+each product.
 
-## Build
+Use components to separate concerns.
+Create a service to manage data communication.
+Implement routing to navigate between components.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 1.3 Reactive Forms
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help.
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Objective**: Test the candidate's ability to work with reactive forms in Angular.
+**Task**: Implement a form to add and edit product details, validating user input and displaying appropriate error
+messages.
