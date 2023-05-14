@@ -2,9 +2,11 @@
   <!-- <div class="spinner-border" role="status">
     <span class="spinner-border"></span>
   </div> -->
-  <small *ngIf="isLoading" class="spinner-border spinner-border-sm"></small>
-  <ng-container *ngIf="!isLoading">
-    <span *ngIf="!isLoggedIn" (click)="login()" class="pointer align-middle">Login</span>
-    <span *ngIf="isLoggedIn" (click)="logOut()" class="pointer align-middle">Log out</span>
-  </ng-container>
+  <span>
+    <small *ngIf="isLoading" class="spinner-border spinner-border-sm"></small>
+    <ng-container *ngIf="!isLoading">
+      <button *ngIf="!isLoggedIn" (click)="login()" class="pointer shadow btn btn-success">Login</button>
+      <button *ngIf="isLoggedIn" (click)="logOut()" class="pointer shadow btn btn-danger">Log out</button>
+    </ng-container>
+  </span>
 </footer>
