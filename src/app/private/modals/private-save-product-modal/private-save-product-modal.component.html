@@ -1,0 +1,79 @@
+
+
+<div class="modal-content">
+  <div class="modal-header c-bg-primary">
+    <div>
+      <h5 *ngIf="!disableForm" class="modal-title">Save Product</h5>
+      <h5 *ngIf="disableForm" class="modal-title">Product</h5>
+    </div>
+    <button (click)="activeModal.close()" class="btn" type="button" data-bs-dismiss="modal" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body c-bg-secondary">
+
+    <form [formGroup]="form">
+      <fieldset [disabled]=disableForm>
+
+        <div class="row">
+
+          <div class="col-md-6 position-relative">
+            <img appImage [imgSrc]="product?.imageSrc" class="card-img-top" alt="Product image">
+
+            <div *ngIf="!disableForm" class="d-flex justify-content-between">
+              <i (click)="openUploadProfileModal()" class="bi bi-pencil-square pointer text-primary"></i>
+              <i *ngIf="product?.imageSrc" (click)="updateProfilePicture('')" class="bi bi-trash3-fill pointer text-danger"></i>
+            </div>
+            <app-custom-error-message [errorMessage]="errorService.getError(form, 'imageSrc')"></app-custom-error-message>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="row">
+
+              <div class="form-group col-md-12 mb-3 position-relative">
+                <label class="form-control-label mb-2" for="nameField"><strong>Name</strong></label>
+                <input placeholder="Name of Product" maxlength="50" type="text" class="form-control" id="nameField" formControlName="name"  [ngClass]="{'is-invalid': errorService.getError(form, 'name')}">
+                <app-custom-error-message [errorMessage]="errorService.getError(form, 'name')"></app-custom-error-message>
+              </div>
+
+              <div class="form-group col-md-12 mb-3 position-relative">
+                <label class="form-control-label mb-2" for="typeField"><strong>Type</strong></label>
+                <select class="form-control" id="typeField" formControlName="type"  [ngClass]="{'is-invalid': errorService.getError(form, 'type')}">
+                  <option [value]="null" >---</option>
+                  <option value="food" >food</option>
+                  <option value="electronics" >electronics</option>
+                  <option value="fashion" >fashion</option>
+                  <option value="outdoor" >outdoor</option>
+                  <option value="gaming" >gaming</option>
+                </select>
+                <app-custom-error-message [errorMessage]="errorService.getError(form, 'type')"></app-custom-error-message>
+              </div>
+
+              <div class="form-group col-md-12 mb-3 position-relative">
+                <label class="form-control-label mb-2" for="descriptionField"><strong>Description</strong></label>
+                <textarea placeholder="Other Name" maxlength="2000" rows="7" class="form-control" id="descriptionField" formControlName="description"  [ngClass]="{'is-invalid': errorService.getError(form, 'description')}"></textarea>
+
+                <div class="desc-count"><small>{{(form.get('description')?.value?.length || 0)}}/2000</small></div>
+                <app-custom-error-message [errorMessage]="errorService.getError(form, 'description')"></app-custom-error-message>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </fieldset>
+    </form>
+
+  </div>
+  <div class="modal-footer c-bg-primary justify-content-between">
+    <button *ngIf="!disableForm" (click)="saveProduct()" [disabled]="form.invalid || isLoading"  type="button" class="btn btn-primary">
+      Save
+      <small *ngIf="isLoading" class="spinner-border spinner-border-sm ms-2"></small>
+    </button>
+    <div>
+      <button (click)="activeModal.close()" type="button" class="ms-4 btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>

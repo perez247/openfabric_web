@@ -1,0 +1,25 @@
+
+<div class="position-relative mb-4">
+  <div class="card">
+    <img appImage [imgSrc]="product?.imageSrc" class="card-img-top" alt="Product image">
+  </div>
+
+  <div class="card-info">
+    <div class="border shadow bg-white rounded card-desc p-2 text-center">
+      <div (click)="saveProduct(true)" class="pointer d-block">
+        <h4>{{product?.name}}</h4>
+        <span class="badge rounded-pill bg-primary">{{product?.type}}</span>
+        <small class="d-block">{{product?.description | sentence : 150}}</small>
+      </div>
+
+      <div *ngIf="canEdit" class="mt-2 border-top">
+        <i (click)="saveProduct()" class="bi bi-pencil-square pointer text-primary"></i>
+        <i *ngIf="!isLoading" (click)="deleteProduct()" class="bi bi-trash3-fill pointer text-danger ms-4"></i>
+        <div *ngIf="isLoading" class="spinner-grow spinner-grow-sm" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

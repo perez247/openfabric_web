@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap icons. */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+// boostrap 5
+@import 'ngx-toastr/toastr-bs5-alert';
+
+.card-info {
+  margin-top: -40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  transition: all 0.25s;
+  // z-index: 3;
+}
+
+.card-info:hover {
+  margin-top: -60px;
+}
+
+.card-desc {
+  min-height: 160px;
+}
+
+.pointer {
+  cursor: pointer;
+}
